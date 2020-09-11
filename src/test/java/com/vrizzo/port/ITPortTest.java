@@ -15,19 +15,40 @@ public class ITPortTest
       + "X| |        \n"
       + "X| |  X  D i\n"
       + "VA_A---::%%%\n";
-  
+
+  String A_STANDARD_PORT = "-^-^\n"
+      + "| |        \n"
+      + "| |        \n"
+      + "| |        \n"
+      + "| |        \n"
+      + "| |        \n"
+      + "| |     D i\n"
+      + "A_A---::%%%\n";
+  private Port port;
+
   @Test
   public void aPortWithOnlyAnEmptyShip()
   {
-    final Ship ship = new Ship(4);
     final Train train = new Train(3);
     train.loadContainer(1);
     Port port = new Port(train, new ContainerStorage(6), new PortInfoFormatter());
-    port.receiveShip(ship);
+    port.receiveShip(new Ship(4));
     final String show = port.show();
 
     Assert.assertThat(show, is(A_STANDARD_PORT_WITH_A_FULL_SHIP_AND_ONE_WAGON_READY));
   }
 
 
+  @Test
+  public void testCase1()
+  {
+    Assert.assertThat(port.show(), is(A_STANDARD_PORT));
+  }
+
+  @Before
+  public void createPort()
+  {
+    final Train train = new Train(3);
+    port = new Port(train, new ContainerStorage(6), new PortInfoFormatter());
+  }
 }
