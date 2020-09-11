@@ -10,13 +10,10 @@ public class Main
   {
     final Train train = new Train(3);
     Port port = new Port(train, new ContainerStorage(6), new Crane(), new Crane(), new PortInfoFormatter());
-    // create a scanner so we can read the command-line input
     Scanner scanner = new Scanner(System.in);
 
-    //  prompt for the user's name
-    System.out.print("Enter your command: ");
+    System.out.print("Enter your command: (accepted command: receive_ship,unload,show,train_send)");
 
-    // get their input as a String
     while (scanner.hasNext())
     {
       String command = scanner.next();
@@ -42,7 +39,7 @@ public class Main
                   port.trainSend();
                   break;
                 default:
-                  System.out.println("wrong command! accepted command ; receive_ship,unload,show,train_send");
+                  System.out.println("wrong command! accepted command : receive_ship,unload,show,train_send");
               }
   }
 }
