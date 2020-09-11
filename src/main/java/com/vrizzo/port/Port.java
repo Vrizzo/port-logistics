@@ -1,25 +1,20 @@
 package com.vrizzo.port;
 
-import com.vrizzo.port.printer.PortPrinter;
-import com.vrizzo.port.printer.PrintablePortElement;
+import com.vrizzo.port.printer.PortInfoFormatter;
 
-class Port implements PrintablePortElement
+class Port
 {
   private final Ship ship;
-  private final PortPrinter portPrinter;
-  Port(Ship ship, PortPrinter portPrinter)
+  private final PortInfoFormatter portInfoFormatter;
+  Port(Ship ship, PortInfoFormatter portInfoFormatter)
   {
     this.ship = ship;
-    this.portPrinter = portPrinter;
+    this.portInfoFormatter = portInfoFormatter;
   }
 
   public String show()
   {
-    return portPrinter.print();
+    return portInfoFormatter.format();
   }
 
-  public String getPrintableInfo()
-  {
-    return "-^-^";
-  }
 }

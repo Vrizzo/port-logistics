@@ -1,8 +1,8 @@
 package com.vrizzo.port;
 
-import com.vrizzo.port.printer.PrintablePortElement;
+import com.vrizzo.port.printer.PortElement;
 
-public class Ship implements PrintablePortElement
+public class Ship implements PortElement
 {
   private int numberOfContainer;
 
@@ -11,7 +11,7 @@ public class Ship implements PrintablePortElement
     this.numberOfContainer = numberOfContainer;
   }
 
-  public String getPrintableInfo()
+  public String getStatusInfo()
   {
     StringBuilder stringBuilder = new StringBuilder("V");
     for(int i = 0 ; i<numberOfContainer ; i++)

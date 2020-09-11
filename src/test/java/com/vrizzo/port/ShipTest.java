@@ -10,7 +10,7 @@ public class ShipTest
   @Test
   public void getPrintableInfo()
   {
-    Assert.assertThat(new Ship(4).getPrintableInfo(), is("VXXXX"));
-    Assert.assertThat(new Ship(3).getPrintableInfo(), is("VXXX"));
+    Assert.assertThat(new Ship(4).getStatusInfo(), is("VXXXX"));
+    Assert.assertThat(new Ship(3).getStatusInfo(), is("VXXX"));
   }
 }
