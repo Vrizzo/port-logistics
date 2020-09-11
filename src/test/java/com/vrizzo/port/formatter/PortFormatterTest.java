@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import static org.hamcrest.CoreMatchers.is;
 
-public class PortPrinterTest
+public class PortFormatterTest
 {
 
   @Test
