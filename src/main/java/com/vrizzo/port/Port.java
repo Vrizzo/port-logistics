@@ -10,11 +10,15 @@ class Port
 {
 
   private Ship ship;
+  private final Train train;
   private final ContainerStorage containerStorage;
   private final PortInfoFormatter portInfoFormatter;
 
-  Port(ContainerStorage containerStorage, PortInfoFormatter portInfoFormatter)
+  Port(Train train,
+       ContainerStorage containerStorage,
+       PortInfoFormatter portInfoFormatter)
   {
+    this.train = train;
     this.containerStorage = containerStorage;
     this.portInfoFormatter = portInfoFormatter;
   }
@@ -31,6 +35,7 @@ class Port
       portElementList.add(ship);
 
     portElementList.add(containerStorage);
+    portElementList.add(train);
     return portElementList.toArray(new PortElement[0]);
   }
 
