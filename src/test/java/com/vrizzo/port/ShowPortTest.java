@@ -27,7 +27,8 @@ public class ShowPortTest
   public void aPortWithOnlyAnEmptyShip()
   {
     System.out.println(A_PORT_WITH_ONLY_AN_EMPTY_SHIP);
-    Port port = new Port(new Ship(4), new PortPrinter(printablePortElements));
+    final Ship ship = new Ship(4);
+    Port port = new Port(ship, new PortPrinter(ship));
     Assert.assertThat(port.show(), is(A_PORT_WITH_ONLY_AN_EMPTY_SHIP));
   }
 
