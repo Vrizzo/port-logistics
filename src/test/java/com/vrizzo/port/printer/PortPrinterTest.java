@@ -3,6 +3,8 @@ package com.vrizzo.port.printer;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.hamcrest.CoreMatchers.is;
 
 public class PortPrinterTest
@@ -11,20 +13,20 @@ public class PortPrinterTest
   @Test
   public void printEmpty()
   {
-    Assert.assertThat(new PortInfoFormatter().format(() -> ""), is("-^-^\n"));
+    Assert.assertThat(new PortInfoFormatter().format(() -> new PortElementStatus(Arrays.asList(""))), is("-^-^\n"));
   }
 
   @Test
   public void printOneElement()
   {
-    Assert.assertThat(new PortInfoFormatter().format(() -> "VXXXX"), is("-^-^\nX\nX\nX\nX\nV\n"));
+    Assert.assertThat(new PortInfoFormatter().format(() -> new PortElementStatus(Arrays.asList("VXXXX"))), is("-^-^\nX\nX\nX\nX\nV\n"));
   }
 
   @Test
   public void printTwoElementEmpty()
   {
-    final String print = new PortInfoFormatter().format(() -> "VXXXX",
-                                                        () -> "AXXXXX");
+    final String print = new PortInfoFormatter().format(() -> new PortElementStatus(Arrays.asList("VXXXX")),
+                                                        () -> new PortElementStatus(Arrays.asList("AXXXXX")));
     
     Assert.assertThat(print, is("-^-^\n X\nXX\nXX\nXX\nXX\nVA\n"));
     

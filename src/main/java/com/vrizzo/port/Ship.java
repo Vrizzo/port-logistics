@@ -1,6 +1,9 @@
 package com.vrizzo.port;
 
 import com.vrizzo.port.printer.PortElement;
+import com.vrizzo.port.printer.PortElementStatus;
+
+import java.util.Arrays;
 
 public class Ship implements PortElement
 {
@@ -11,11 +14,11 @@ public class Ship implements PortElement
     this.numberOfContainer = numberOfContainer;
   }
 
-  public String getStatusInfo()
+  public PortElementStatus getStatusInfo()
   {
     StringBuilder stringBuilder = new StringBuilder("V");
     for(int i = 0 ; i<numberOfContainer ; i++)
       stringBuilder.append("X");
-    return stringBuilder.toString();
+    return new PortElementStatus(Arrays.asList(stringBuilder.toString()));
   }
 }

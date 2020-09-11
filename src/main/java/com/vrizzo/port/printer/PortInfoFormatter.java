@@ -14,6 +14,8 @@ public class PortInfoFormatter
 
     final List<String> stringToFormatList = Stream.of(portElements)
         .map(PortElement::getStatusInfo)
+        .map(portElementStatus -> portElementStatus.getStatusInformation())
+        .flatMap(List::stream)
         .map(s -> StringUtils.rightPad(s, infoMaxLength))
         .collect(Collectors.toList());
 
@@ -40,7 +42,9 @@ public class PortInfoFormatter
   private int getInfoMaxLength(PortElement[] portElements)
   {
     return Stream.of(portElements)
-    .map(PortElement::getStatusInfo)
+        .map(PortElement::getStatusInfo)
+        .map(portElementStatus -> portElementStatus.getStatusInformation())
+        .flatMap(List::stream)
     .mapToInt(String::length)
     .max().orElse(0);
   }
