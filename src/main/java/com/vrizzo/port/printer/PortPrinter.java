@@ -11,6 +11,6 @@ public class PortPrinter
 
   public String print()
   {
-    return null;
+    return "";
   }
 }
