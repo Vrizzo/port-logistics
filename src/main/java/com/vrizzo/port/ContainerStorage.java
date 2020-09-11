@@ -42,7 +42,11 @@ public class ContainerStorage implements PortElement, LoadingDestination, Unload
   @Override public int unload(int numberOfUnload)
   {
     if(numberOfUnload > numberOfContainer)
-      return numberOfContainer;
+    {
+      numberOfUnload = numberOfContainer;
+      numberOfContainer = 0;
+      return numberOfUnload;
+    }
     
     numberOfContainer = numberOfContainer -numberOfUnload;
     return numberOfUnload;
