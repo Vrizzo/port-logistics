@@ -10,16 +10,23 @@ class Port
 {
 
   private Ship ship;
-  private final Train train;
+  private Train train;
   private final ContainerStorage containerStorage;
+  private final Crane crane1;
+  private final Crane crane2;
   private final PortInfoFormatter portInfoFormatter;
 
   Port(Train train,
        ContainerStorage containerStorage,
-       PortInfoFormatter portInfoFormatter)
+       Crane crane1, Crane crane2, PortInfoFormatter portInfoFormatter)
   {
     this.train = train;
     this.containerStorage = containerStorage;
+    this.crane1 = crane1;
+    this.crane2 = crane2;
+    crane1.joinDestination(containerStorage);
+    crane2.joinSource(containerStorage);
+    crane2.joinDestination(train);
     this.portInfoFormatter = portInfoFormatter;
   }
 
@@ -42,5 +49,17 @@ class Port
   public void receiveShip(Ship ship)
   {
     this.ship = ship;
+    this.crane1.joinSource(ship);
+  }
+
+  public void unload()
+  {
+    crane1.move();
+    crane2.move();
+  }
+
+  public void trainSend()
+  {
+    train = new Train(3);
   }
 }

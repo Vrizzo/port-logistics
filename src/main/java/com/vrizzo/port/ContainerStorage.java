@@ -5,7 +5,7 @@ import com.vrizzo.port.formatter.PortElementStatus;
 
 import java.util.Arrays;
 
-public class ContainerStorage implements PortElement
+public class ContainerStorage implements PortElement, LoadingDestination, UnloadingSource
 {
   private final int maxContainer;
   private int numberOfContainer;
@@ -29,8 +29,22 @@ public class ContainerStorage implements PortElement
                                                stringBuilderSide.toString()));
   }
 
-  public void loadContainer(int containers)
+  public void load(int containers)
   {
-    numberOfContainer = containers;
+    numberOfContainer = numberOfContainer +containers;
+  }
+
+  @Override public int getMaxOccupancy()
+  {
+    return maxContainer - numberOfContainer;
+  }
+
+  @Override public int unload(int numberOfUnload)
+  {
+    if(numberOfUnload > numberOfContainer)
+      return numberOfContainer;
+    
+    numberOfContainer = numberOfContainer -numberOfUnload;
+    return numberOfUnload;
   }
 }

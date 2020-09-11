@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
 
 public class TrainTest
 {
@@ -29,7 +28,7 @@ public class TrainTest
   {
     final Train train = new Train(3);
 
-    train.loadContainer(2);
+    train.load(2);
     
     final List<String> statusInformation = train.getStatusInfo().getStatusInformation();
     Assert.assertThat(statusInformation.get(0), is("- "));

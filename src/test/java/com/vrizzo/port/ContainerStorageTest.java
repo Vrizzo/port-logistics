@@ -24,7 +24,7 @@ public class ContainerStorageTest
     Assert.assertThat(containerStorage.getStatusInfo().getStatusInformation().get(1), is("_      "));
     Assert.assertThat(containerStorage.getStatusInfo().getStatusInformation().get(2), is("A||||||"));
 
-    containerStorage.loadContainer(3);
+    containerStorage.load(3);
 
     Assert.assertThat(containerStorage.getStatusInfo().getStatusInformation().get(0), is("A||||||"));
     Assert.assertThat(containerStorage.getStatusInfo().getStatusInformation().get(1), is("_XXX   "));

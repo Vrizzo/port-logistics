@@ -5,7 +5,7 @@ import com.vrizzo.port.formatter.PortElementStatus;
 
 import java.util.*;
 
-public class Train implements PortElement
+public class Train implements PortElement, LoadingDestination
 {
   private final int wagonNumber;
 
@@ -35,8 +35,13 @@ public class Train implements PortElement
     return new PortElementStatus(statusInfoList);
   }
 
-  public void loadContainer(int containerToLoad)
+  @Override public void load(int numberOfContainer)
   {
-    loadedWagon = containerToLoad;
+    loadedWagon = loadedWagon + numberOfContainer;
+  }
+
+  @Override public int getMaxOccupancy()
+  {
+    return wagonNumber - loadedWagon;
   }
 }
