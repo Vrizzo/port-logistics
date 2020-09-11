@@ -61,5 +61,6 @@ class Port
   public void trainSend()
   {
     train = new Train(3);
+    crane2.joinDestination(train);
   }
 }
