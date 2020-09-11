@@ -1,6 +1,6 @@
 package com.vrizzo.port;
 
-import com.vrizzo.port.printer.PortInfoFormatter;
+import com.vrizzo.port.formatter.PortInfoFormatter;
 import org.junit.*;
 
 import static org.hamcrest.CoreMatchers.is;

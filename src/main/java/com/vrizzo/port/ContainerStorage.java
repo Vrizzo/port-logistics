@@ -1,7 +1,7 @@
 package com.vrizzo.port;
 
-import com.vrizzo.port.printer.PortElement;
-import com.vrizzo.port.printer.PortElementStatus;
+import com.vrizzo.port.formatter.PortElement;
+import com.vrizzo.port.formatter.PortElementStatus;
 
 import java.util.Arrays;
 

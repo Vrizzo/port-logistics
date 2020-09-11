@@ -1,4 +1,4 @@
-package com.vrizzo.port.printer;
+package com.vrizzo.port.formatter;
 
 import org.junit.Assert;
 import org.junit.Test;

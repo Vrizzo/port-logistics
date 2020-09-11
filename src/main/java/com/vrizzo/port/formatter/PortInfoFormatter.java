@@ -1,4 +1,4 @@
-package com.vrizzo.port.printer;
+package com.vrizzo.port.formatter;
 
 import org.apache.commons.lang3.StringUtils;
 

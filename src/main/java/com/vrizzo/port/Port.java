@@ -1,7 +1,7 @@
 package com.vrizzo.port;
 
-import com.vrizzo.port.printer.PortElement;
-import com.vrizzo.port.printer.PortInfoFormatter;
+import com.vrizzo.port.formatter.PortElement;
+import com.vrizzo.port.formatter.PortInfoFormatter;
 
 import java.util.ArrayList;
 import java.util.List;
