@@ -24,8 +24,6 @@ public class ContainerStorage implements PortElement
       stringBuilderSide.append("|");
       stringBuilderStack.append((i < numberOfContainer) ? "X" : " ");
     }
-    stringBuilderSide.append("\n");
-    stringBuilderStack.append("\n");
     return new PortElementStatus(Arrays.asList(stringBuilderSide.toString(),
                                                stringBuilderStack.toString(),
                                                stringBuilderSide.toString()));

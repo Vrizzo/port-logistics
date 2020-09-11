@@ -14,9 +14,9 @@ public class TrainTest
   public void anEmptyTrain()
   {
     final List<String> statusInformation = new Train(3).getStatusInfo().getStatusInformation();
-    Assert.assertThat(statusInformation.get(0), is("_ "));
-    Assert.assertThat(statusInformation.get(1), is("_ "));
-    Assert.assertThat(statusInformation.get(2), is("_ "));
+    Assert.assertThat(statusInformation.get(0), is("- "));
+    Assert.assertThat(statusInformation.get(1), is("- "));
+    Assert.assertThat(statusInformation.get(2), is("- "));
     Assert.assertThat(statusInformation.get(3), is(":"));
     Assert.assertThat(statusInformation.get(4), is(":"));
     Assert.assertThat(statusInformation.get(5), is("%D"));
@@ -32,9 +32,9 @@ public class TrainTest
     train.loadContainer(2);
     
     final List<String> statusInformation = train.getStatusInfo().getStatusInformation();
-    Assert.assertThat(statusInformation.get(0), is("_ "));
-    Assert.assertThat(statusInformation.get(1), is("_X"));
-    Assert.assertThat(statusInformation.get(2), is("_X"));
+    Assert.assertThat(statusInformation.get(0), is("- "));
+    Assert.assertThat(statusInformation.get(1), is("-X"));
+    Assert.assertThat(statusInformation.get(2), is("-X"));
     Assert.assertThat(statusInformation.get(3), is(":"));
     Assert.assertThat(statusInformation.get(4), is(":"));
     Assert.assertThat(statusInformation.get(5), is("%D"));

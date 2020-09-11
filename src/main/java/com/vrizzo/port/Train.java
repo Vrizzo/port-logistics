@@ -22,7 +22,7 @@ public class Train implements PortElement
     List<String> statusInfoList = new ArrayList<>();
     for (int i = 0; i < wagonNumber; i++)
     {
-      statusInfoList.add("_" + ((i < loadedWagon) ? "X" : " "));
+      statusInfoList.add("-" + ((i < loadedWagon) ? "X" : " "));
     }
 
     Collections.reverse(statusInfoList);

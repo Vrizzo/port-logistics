@@ -10,11 +10,11 @@ public class PortInfoFormatter
 {
   public String format(PortElement... portElements)
   {
-    int infoMaxLength  = getInfoMaxLength(portElements);
+    int infoMaxLength = getInfoMaxLength(portElements);
 
     final List<String> stringToFormatList = Stream.of(portElements)
         .map(PortElement::getStatusInfo)
-        .map(portElementStatus -> portElementStatus.getStatusInformation())
+        .map(PortElementStatus::getStatusInformation)
         .flatMap(List::stream)
         .map(s -> StringUtils.rightPad(s, infoMaxLength))
         .collect(Collectors.toList());
@@ -28,10 +28,10 @@ public class PortInfoFormatter
     List<String> remainingStringToFormatList = new ArrayList<>();
     for (String s : stringToFormatList)
     {
-      final int lastCharIndex = s.length() -1;
-      if(lastCharIndex < 0)
+      final int lastCharIndex = s.length() - 1;
+      if (lastCharIndex < 0)
         return "";
-      
+
       formattedResult.append(s.charAt(lastCharIndex));
       remainingStringToFormatList.add(s.substring(0, lastCharIndex));
     }
@@ -43,9 +43,9 @@ public class PortInfoFormatter
   {
     return Stream.of(portElements)
         .map(PortElement::getStatusInfo)
-        .map(portElementStatus -> portElementStatus.getStatusInformation())
+        .map(PortElementStatus::getStatusInformation)
         .flatMap(List::stream)
-    .mapToInt(String::length)
-    .max().orElse(0);
+        .mapToInt(String::length)
+        .max().orElse(0);
   }
 }

@@ -7,30 +7,27 @@ import static org.hamcrest.CoreMatchers.is;
 
 public class ShowPortTest
 {
-  String A_STANDARD_PORT_WITH_ONLY_A_FULL_SHIP = "-^-^\n"
-      + " | |\n"
-      + "X| |\n"
-      + "X| |\n"
-      + "X| |\n"
+  String A_STANDARD_PORT_WITH_A_FULL_SHIP_AND_ONE_WAGON_READY = "-^-^\n"
+      + " | |        \n"
+      + " | |        \n"
+      + "X| |        \n"
+      + "X| |        \n"
+      + "X| |        \n"
       + "X| |  X  D i\n"
-      + "VA_A---::%%%";
+      + "VA_A---::%%%\n";
   
-  String A_PORT_WITH_ONLY_AN_EMPTY_SHIP =  "-^-^\n"
-                                         + "\n"
-                                         + "X\n"
-                                         + "X\n"
-                                         + "X\n"
-                                         + "X\n"
-                                         + "V";
   @Test
-  @Ignore
   public void aPortWithOnlyAnEmptyShip()
   {
-    System.out.println(A_PORT_WITH_ONLY_AN_EMPTY_SHIP);
+    System.out.println(A_STANDARD_PORT_WITH_A_FULL_SHIP_AND_ONE_WAGON_READY);
     final Ship ship = new Ship(4);
-    Port port = new Port(new Train(3), new ContainerStorage(6), new PortInfoFormatter());
+    final Train train = new Train(3);
+    train.loadContainer(1);
+    Port port = new Port(train, new ContainerStorage(6), new PortInfoFormatter());
     port.receiveShip(ship);
-    Assert.assertThat(port.show(), is(A_PORT_WITH_ONLY_AN_EMPTY_SHIP));
+    final String show = port.show();
+    System.out.println(show);
+    Assert.assertThat(show, is(A_STANDARD_PORT_WITH_A_FULL_SHIP_AND_ONE_WAGON_READY));
   }
 
 }
